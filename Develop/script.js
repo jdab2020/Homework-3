@@ -22,6 +22,7 @@ let specChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=",
 
 // Asks how long of a password
 let passwordLength = parseInt(prompt("Choose password length: 8-128"));
+// Doesn't check if accidentally clicked cancel ....
 // Checks if too short or too long
 while (passwordLength < 8 || passwordLength > 128) {
   alert("Password length is either too short or too long!");
@@ -30,44 +31,17 @@ while (passwordLength < 8 || passwordLength > 128) {
 
 // Asks which characters to include in password
 let confirmNum = confirm("Include numbers?");
-if (confirmNum) {
-  var counter1 = 0;
-}
-
 let confirmLowChar = confirm("Include lower case alphabet?");
-  if (confirmLowChar) {
-    var counter2 = 0;
-  }
-  
 let confirmUpChar = confirm("Include upper case alphabet?");
-  if (confirmUpChar) {
-    var counter3 = 0;
-  }
-  
 let confirmSpecChar = confirm("Include some special characters?");
-  if (confirmSpecChar){
-    var counter4 = 0;
-  }
-  
+ 
 // Checks if a type of character was chosen
-while (confirmNum === false && confirmLowChar === false && confirmUpChar === fasle && confirmSpecChar === false) {
+while (confirmNum === false && confirmLowChar === false && confirmUpChar === false && confirmSpecChar === false) {
   alert("Must have at least one type of characters!");
-  let confirmNum = confirm("Include numbers?");
-    if (confirmNum) {
-      var counter1 = 0;
-    }
-  let confirmLowChar = confirm("Include lower case alphabet?");
-    if (confirmLowChar) {
-      var counter2 = 0;
-    }
-  let confirmUpChar = confirm("Include upper case alphabet?");
-    if (confirmUpChar) {
-      var counter3 = 0;
-    }
-  let confirmSpecChar = confirm("Include some special characters?");
-    if (confirmSpecChar){
-      var counter4 = 0;
-    }
+  confirmNum = confirm("Include numbers?");
+  confirmLowChar = confirm("Include lower case alphabet?");
+  confirmUpChar = confirm("Include upper case alphabet?");
+  confirmSpecChar = confirm("Include some special characters?");
 }
 
 // Creates arrays for characters to be used
@@ -84,16 +58,18 @@ for (let i = 0; i < charConfirmed.length; i++){
   }
 }
 
-// Generates the password using random index and // needs a check whether selected types were used
+// Generates the password with first few characters to satisfy selection + uses random number to choose random character
 function generatePassword () {
   let pw = " ";
-  let pw_a = [];
-  while (counter1 === 0 || counter2 === 0 || counter3 === 0 || counter4 === 0){
-    for (let i = 0; i < passwordLength; i++){
-      let randIdx = Math.floor(Math.random()*charsToAnArray.length);
-      pw += charsToAnArray[randIdx];
-      pw_a.push(charsToAnArray[randIdx]);
-    }
+  for (let i = 0; i < charIdx.length; i++) {
+    let choices = chars[charIdx[i]];
+    pw+= choices[Math.floor(Math.random()*choices.length)];
+  }
+
+  for (let i = 0; i < passwordLength; i++){
+    let randIdx = Math.floor(Math.random()*charsToAnArray.length);
+    pw += charsToAnArray[randIdx];
+      
   }
   return pw;
 }
