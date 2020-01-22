@@ -21,32 +21,16 @@ let upChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "
 let specChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "/", ",", ".", "<", ">", ";", ":", "{", "}", "[", "]", "`", "~",];
 
 
-
-// // Generates the password with first few characters to satisfy selection + uses random number to choose random character
-// function generatePassword () {
-//   let pw = " ";
-//   for (let i = 0; i < charIdx.length; i++) {
-//     let choices = chars[charIdx[i]];
-//     pw+= choices[Math.floor(Math.random()*choices.length)];
-//   }
-
-//   for (let i = 0; i < passwordLength; i++){
-//     let randIdx = Math.floor(Math.random()*charsToAnArray.length);
-//     pw += charsToAnArray[randIdx];
-
-//   }
-//   return pw;
-// }
-
 function generatePassword() {
   // Asks how long of a password
-  let passwordLength = parseInt(prompt("Choose password length: 8-128"));
-  // Doesn't check if accidentally clicked cancel ....
+  let passwordLength = (prompt("Choose password length: 8-128"));
+    
   // Checks if too short or too long
-  while (passwordLength < 8 || passwordLength > 128) {
+  while (passwordLength < 8 || passwordLength > 128 || passwordLength === NaN || passwordLength === null) {
     alert("Password length is either too short or too long!");
     passwordLength = parseInt(prompt("Choose password length: 8-128"));
   }
+  // Checks only once if clicked okay/cancel....
 
   // Asks which characters to include in password
   let confirmNum = confirm("Include numbers?");
@@ -85,7 +69,6 @@ function generatePassword() {
   for (let i = 0; i < passwordLength; i++) {
     let randIdx = Math.floor(Math.random() * charsToAnArray.length);
     pw += charsToAnArray[randIdx];
-
   }
   return pw;
 }
