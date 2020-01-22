@@ -58,18 +58,32 @@ for (let i = 0; i < charConfirmed.length; i++){
   }
 }
 
-// Generates the password with first few characters to satisfy selection + uses random number to choose random character
-function generatePassword () {
-  let pw = " ";
-  for (let i = 0; i < charIdx.length; i++) {
-    let choices = chars[charIdx[i]];
-    pw+= choices[Math.floor(Math.random()*choices.length)];
-  }
+// // Generates the password with first few characters to satisfy selection + uses random number to choose random character
+// function generatePassword () {
+//   let pw = " ";
+//   for (let i = 0; i < charIdx.length; i++) {
+//     let choices = chars[charIdx[i]];
+//     pw+= choices[Math.floor(Math.random()*choices.length)];
+//   }
 
-  for (let i = 0; i < passwordLength; i++){
-    let randIdx = Math.floor(Math.random()*charsToAnArray.length);
-    pw += charsToAnArray[randIdx];
+//   for (let i = 0; i < passwordLength; i++){
+//     let randIdx = Math.floor(Math.random()*charsToAnArray.length);
+//     pw += charsToAnArray[randIdx];
       
+//   }
+//   return pw;
+// }
+
+function generatePassword () {
+    let pw = " ";
+    for (let i = 0; i < charIdx.length; i++) {
+      pw+= chars[charIdx[i]][Math.floor(Math.random()*chars[charIdx[i]].length)];
+    }
+  
+    for (let i = 0; i < passwordLength; i++){
+      let randIdx = Math.floor(Math.random()*charsToAnArray.length);
+      pw += charsToAnArray[randIdx];
+        
+    }
+    return pw;
   }
-  return pw;
-}
