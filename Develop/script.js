@@ -57,12 +57,14 @@ for (let i = 0; i < charConfirmed.length; i++){
   }
 }
 
+// Generates the password using random index and // needs a check whether selected types were used
 function generatePassword () {
   let pw = " ";
   let pw_a = [];
   for (let i = 0; i < passwordLength; i++){
-    pw += (charsToAnArray[Math.floor(Math.random()*charsToAnArray.length)]);
-    pw.push(charsToAnArray[Math.floor(Math.random()*charsToAnArray.length)]);
+    let randIdx = Math.floor(Math.random()*charsToAnArray.length);
+    pw += charsToAnArray[randIdx];
+    pw_a.push(charsToAnArray[randIdx]);
   }
   return pw;
 }
