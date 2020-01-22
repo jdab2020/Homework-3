@@ -43,4 +43,17 @@ while (confirmNum === false && confirmLowChar === false && confirmUpChar === fas
   let confirmSpecChar = confirm("Include some special characters?");
 }
 
-
+// Creates arrays for characters to be used
+let charConfirmed = [confirmNum,confirmLowChar,confirmUpChar,confirmSpecChar];
+let charToUse = [num,lowChar,upChar,specChar];
+console.log (charToUse);
+let charUsed = [];
+// let charCheck = [];
+for (let i = 0; i < charConfirmed.length; i++){
+  if (charConfirmed[i]){
+    charUsed.push(i);
+    console.log (charUsed);
+    // charCheck.push(charToUse[i]);
+    // console.log (charCheck);
+  }
+}
