@@ -46,7 +46,6 @@ while (confirmNum === false && confirmLowChar === false && confirmUpChar === fas
 // Creates arrays for characters to be used
 let charConfirmed = [confirmNum,confirmLowChar,confirmUpChar,confirmSpecChar];
 let chars = [num,lowChar,upChar,specChar];
-console.log (charToUse);
 let charIdx = [];
 let charsToAnArray = [];
 for (let i = 0; i < charConfirmed.length; i++){
@@ -59,9 +58,11 @@ for (let i = 0; i < charConfirmed.length; i++){
 }
 
 function generatePassword () {
-  let pw = [];
+  let pw = " ";
+  let pw_a = [];
   for (let i = 0; i < passwordLength; i++){
-  
+    pw += (charsToAnArray[Math.floor(Math.random()*charsToAnArray.length)]);
+    pw.push(charsToAnArray[Math.floor(Math.random()*charsToAnArray.length)]);
   }
   return pw;
 }
