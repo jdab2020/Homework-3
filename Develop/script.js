@@ -30,17 +30,44 @@ while (passwordLength < 8 || passwordLength > 128) {
 
 // Asks which characters to include in password
 let confirmNum = confirm("Include numbers?");
-let confirmLowChar = confirm("Include lower case alphabet?");
-let confirmUpChar = confirm("Include upper case alphabet?");
-let confirmSpecChar = confirm("Include some special characters?");
+if (confirmNum) {
+  var counter1 = 0;
+}
 
+let confirmLowChar = confirm("Include lower case alphabet?");
+  if (confirmLowChar) {
+    var counter2 = 0;
+  }
+  
+let confirmUpChar = confirm("Include upper case alphabet?");
+  if (confirmUpChar) {
+    var counter3 = 0;
+  }
+  
+let confirmSpecChar = confirm("Include some special characters?");
+  if (confirmSpecChar){
+    var counter4 = 0;
+  }
+  
 // Checks if a type of character was chosen
 while (confirmNum === false && confirmLowChar === false && confirmUpChar === fasle && confirmSpecChar === false) {
   alert("Must have at least one type of characters!");
   let confirmNum = confirm("Include numbers?");
+    if (confirmNum) {
+      var counter1 = 0;
+    }
   let confirmLowChar = confirm("Include lower case alphabet?");
+    if (confirmLowChar) {
+      var counter2 = 0;
+    }
   let confirmUpChar = confirm("Include upper case alphabet?");
+    if (confirmUpChar) {
+      var counter3 = 0;
+    }
   let confirmSpecChar = confirm("Include some special characters?");
+    if (confirmSpecChar){
+      var counter4 = 0;
+    }
 }
 
 // Creates arrays for characters to be used
@@ -61,10 +88,12 @@ for (let i = 0; i < charConfirmed.length; i++){
 function generatePassword () {
   let pw = " ";
   let pw_a = [];
-  for (let i = 0; i < passwordLength; i++){
-    let randIdx = Math.floor(Math.random()*charsToAnArray.length);
-    pw += charsToAnArray[randIdx];
-    pw_a.push(charsToAnArray[randIdx]);
+  while (counter1 === 0 || counter2 === 0 || counter3 === 0 || counter4 === 0){
+    for (let i = 0; i < passwordLength; i++){
+      let randIdx = Math.floor(Math.random()*charsToAnArray.length);
+      pw += charsToAnArray[randIdx];
+      pw_a.push(charsToAnArray[randIdx]);
+    }
   }
   return pw;
 }
