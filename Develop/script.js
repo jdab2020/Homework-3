@@ -45,16 +45,16 @@ while (confirmNum === false && confirmLowChar === false && confirmUpChar === fas
 
 // Creates arrays for characters to be used
 let charConfirmed = [confirmNum,confirmLowChar,confirmUpChar,confirmSpecChar];
-let charToUse = [num,lowChar,upChar,specChar];
+let chars = [num,lowChar,upChar,specChar];
 console.log (charToUse);
-let charUsed = [];
-let charCheck = [];
+let charIdx = [];
+let charsToAnArray = [];
 for (let i = 0; i < charConfirmed.length; i++){
   if (charConfirmed[i]){
-    charUsed.push(i);
-    console.log (charUsed);
-    charCheck = charCheck.concat(charToUse[i]);
-    console.log (charCheck);
+    charIdx.push(i);
+    console.log (charIdx);
+    charsToAnArray = charsToAnArray.concat(chars[i]);
+    console.log (charsToAnArray);
   }
 }
 
