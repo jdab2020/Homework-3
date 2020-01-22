@@ -48,12 +48,20 @@ let charConfirmed = [confirmNum,confirmLowChar,confirmUpChar,confirmSpecChar];
 let charToUse = [num,lowChar,upChar,specChar];
 console.log (charToUse);
 let charUsed = [];
-// let charCheck = [];
+let charCheck = [];
 for (let i = 0; i < charConfirmed.length; i++){
   if (charConfirmed[i]){
     charUsed.push(i);
     console.log (charUsed);
-    // charCheck.push(charToUse[i]);
-    // console.log (charCheck);
+    charCheck = charCheck.concat(charToUse[i]);
+    console.log (charCheck);
   }
+}
+
+function generatePassword () {
+  let pw = [];
+  for (let i = 0; i < passwordLength; i++){
+  
+  }
+  return pw;
 }
