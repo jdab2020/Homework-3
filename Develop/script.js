@@ -48,27 +48,29 @@ function generatePassword() {
   }
 
   // Creates arrays for characters to be used
-  let charConfirmed = [confirmNum, confirmLowChar, confirmUpChar, confirmSpecChar];
-  let chars = [num, lowChar, upChar, specChar];
-  let charIdx = [];
+  let charConfirmed = [confirmNum, confirmLowChar, confirmUpChar, confirmSpecChar]; //Array of boolean
+  console.log(charConfirmed.length);
+  let chars = [num, lowChar, upChar, specChar]; //Array within an array
+  let charIdx = []; 
   let charsToAnArray = [];
-  for (let i = 0; i < charConfirmed.length; i++) {
+  for (let i = 0; i < charConfirmed.length; i++) { //Used to see which character type was confirmed as "true" then adds index to a charIdx
     if (charConfirmed[i]) {
       charIdx.push(i);
       console.log(charIdx);
-      charsToAnArray = charsToAnArray.concat(chars[i]);
-      console.log(charsToAnArray);
+      charsToAnArray = charsToAnArray.concat(chars[i]); //Puts selected character type into a single array / not array within an array
+      console.log(charsToAnArray.length);
     }
   }
-
+  // pw = chars[index=charIdx][index=random number] this makes sure the first few characters satisfy the selected types
   let pw = " ";
-  for (let i = 0; i < charIdx.length; i++) {
+  for (let i = 0; i < charIdx.length; i++) { 
     pw += chars[charIdx[i]][Math.floor(Math.random() * chars[charIdx[i]].length)];
   }
-
-  for (let i = 0; i < passwordLength; i++) {
+  // This then fills the password length user selected
+  for (let i = pw.length; i <= passwordLength; i++) {
     let randIdx = Math.floor(Math.random() * charsToAnArray.length);
     pw += charsToAnArray[randIdx];
   }
+  
   return pw;
 }
