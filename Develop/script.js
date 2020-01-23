@@ -56,9 +56,9 @@ function generatePassword() {
   for (let i = 0; i < charConfirmed.length; i++) { //Used to see which character type was confirmed as "true" then adds index to a charIdx
     if (charConfirmed[i]) {
       charIdx.push(i);
-      console.log(charIdx);
+      // console.log(charIdx);
       charsToAnArray = charsToAnArray.concat(chars[i]); //Puts selected character type into a single array / not array within an array
-      console.log(charsToAnArray.length);
+      // console.log(charsToAnArray.length);
     }
   }
   // pw = chars[index=charIdx][index=random number] this makes sure the first few characters satisfy the selected types
