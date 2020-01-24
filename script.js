@@ -21,16 +21,17 @@ let upChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "
 let specChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "/", ",", ".", "<", ">", ";", ":", "{", "}", "[", "]", "`", "~",];
 
 
+
 function generatePassword() {
   // Asks how long of a password
-  let passwordLength = (prompt("Choose password length: 8-128"));
+  let passwordLength = parseInt(prompt("Choose password length: 8-128"));
     
-  // Checks if too short or too long
+  // Checks if password length is within parameter
   while (passwordLength < 8 || passwordLength > 128 || passwordLength === NaN || passwordLength === null) {
     alert("Password length is either too short or too long!");
     passwordLength = parseInt(prompt("Choose password length: 8-128"));
   }
-  // Checks only once if clicked okay/cancel....
+  // Checks only once if clicked no input/okay/cancel....
 
   // Asks which characters to include in password
   let confirmNum = confirm("Include numbers?");
